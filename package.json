@@ -1,0 +1,24 @@
+{
+  "name": "board-app-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve -s public -l $PORT"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vianneyapp/board-app-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vianneyapp/board-app-2/issues"
+  },
+  "homepage": "https://github.com/vianneyapp/board-app-2#readme",
+  "dependencies": {
+    "serve": "^14.2.5"
+  }
+}
