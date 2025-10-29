@@ -1,6 +1,1 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 8080;
-app.use(express.static('public'));
-app.get('/health', (_req,res)=>res.status(200).send('ok'));
-app.listen(port, '0.0.0.0', ()=>console.log('listening on '+port));
+const fs=require('fs');const path=require('path');const express=require('express');const app=express();const port=process.env.PORT||8080;const candidates=['dist','build','public'];let staticDir='public';for(const d of candidates){const p=path.join(__dirname,d);if(fs.existsSync(p)){staticDir=d;break}}app.use(express.static(staticDir));app.get('/health',(_q,res)=>res.status(200).send('ok'));app.get('*',(req,res)=>{const f=path.join(__dirname,staticDir,'index.html');if(fs.existsSync(f)) return res.sendFile(f);res.status(404).send('index.html not found');});app.listen(port,'0.0.0.0',()=>console.log(`listening on ${port}, serving ${staticDir}`));
